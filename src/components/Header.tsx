@@ -1,4 +1,6 @@
-import { Activity, Info } from "lucide-react";
+import { Activity, Info, BarChart3 } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import {
   HoverCard,
   HoverCardContent,
@@ -24,15 +26,23 @@ export const Header = () => {
             </div>
           </div>
 
-          <HoverCard>
-            <HoverCardTrigger asChild>
-              <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-secondary hover:bg-secondary/80 transition-smooth">
-                <Info className="w-4 h-4 text-secondary-foreground" />
-                <span className="text-sm font-medium text-secondary-foreground">
-                  System Info
-                </span>
-              </button>
-            </HoverCardTrigger>
+          <div className="flex items-center gap-3">
+            <Link to="/metrics">
+              <Button variant="outline" className="flex items-center gap-2">
+                <BarChart3 className="w-4 h-4" />
+                <span className="hidden sm:inline">Performance</span>
+              </Button>
+            </Link>
+
+            <HoverCard>
+              <HoverCardTrigger asChild>
+                <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-secondary hover:bg-secondary/80 transition-smooth">
+                  <Info className="w-4 h-4 text-secondary-foreground" />
+                  <span className="text-sm font-medium text-secondary-foreground hidden sm:inline">
+                    System Info
+                  </span>
+                </button>
+              </HoverCardTrigger>
             <HoverCardContent className="w-80">
               <div className="space-y-3">
                 <h4 className="font-semibold text-foreground">Model Information</h4>
@@ -56,7 +66,8 @@ export const Header = () => {
                 </div>
               </div>
             </HoverCardContent>
-          </HoverCard>
+            </HoverCard>
+          </div>
         </div>
       </div>
     </header>
