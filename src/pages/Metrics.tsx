@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { MetricCard } from "@/components/MetricCard";
 import { ROCCurve } from "@/components/ROCCurve";
 import { ConfusionMatrix } from "@/components/ConfusionMatrix";
+import { PerformanceAlerts } from "@/components/PerformanceAlerts";
 import { Header } from "@/components/Header";
 
 interface ModelMetrics {
@@ -219,6 +220,21 @@ const Metrics = () => {
           </div>
 
           <ConfusionMatrix matrix={metrics.confusion_matrix} />
+        </div>
+
+        {/* Performance Alerts */}
+        <div className="mb-8">
+          <PerformanceAlerts 
+            metrics={{
+              accuracy: metrics.accuracy,
+              precision: metrics.precision,
+              recall: metrics.recall,
+              f1_score: metrics.f1_score,
+              specificity: metrics.specificity,
+              auc_roc: metrics.auc,
+            }}
+            showToasts={true}
+          />
         </div>
 
         {/* ROC Curve */}
