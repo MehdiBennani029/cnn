@@ -1,4 +1,4 @@
-import { Activity, Info, BarChart3 } from "lucide-react";
+import { Activity, Info, BarChart3, FileStack } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
@@ -27,6 +27,12 @@ export const Header = () => {
           </div>
 
           <div className="flex items-center gap-3">
+            <Link to="/batch">
+              <Button variant="outline" className="flex items-center gap-2">
+                <FileStack className="w-4 h-4" />
+                <span className="hidden sm:inline">Batch</span>
+              </Button>
+            </Link>
             <Link to="/metrics">
               <Button variant="outline" className="flex items-center gap-2">
                 <BarChart3 className="w-4 h-4" />
